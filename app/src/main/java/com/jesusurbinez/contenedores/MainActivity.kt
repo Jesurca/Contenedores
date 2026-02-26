@@ -1,6 +1,5 @@
 package com.jesusurbinez.contenedores
 
-import android.R
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -84,7 +83,6 @@ fun ContentScreen() {
             modifier = Modifier
                 .background(Color.Red)
                 .fillMaxWidth()
-                .padding(8.dp)
         )
         Text(
             text = "Papapa",
@@ -117,7 +115,7 @@ fun Contenedor() {
     ) {
 
         Image(
-            painter = painterResource(R.drawable.sym_def_app_icon),
+            painter = painterResource(R.drawable.listo),
             contentDescription = "Check",
             modifier = Modifier
                 .width(width = 200.dp)
@@ -135,24 +133,58 @@ fun Contenedor() {
 
 @Preview(showSystemUi = true)
 @Composable
-
 fun Cuadrante() {
 
     Column(modifier = Modifier.fillMaxSize()) {
+
         Row(modifier = Modifier.weight(1f)) {
-            Column(modifier = Modifier
-                    .background(Color.Red)
+
+            Column(
+                modifier = Modifier
                     .weight(1f)
-                .fillMaxSize()) {
-                Text(text = "holala")
-                Text(text = "holala")
+                    .fillMaxSize()
+                    .background(Color.Red),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("Rojo")
             }
-                Column(modifier = Modifier
-                    .background(Color.Red)
-                    .weight(1f)) {
-                    Text(text = "holala")
-                    Text(text = "holala")
-                }
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxSize()
+                    .background(Color.Yellow),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("Amarillo")
+            }
+        }
+
+        Row(modifier = Modifier.weight(1f)) {
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxSize()
+                    .background(Color.Cyan),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("Cyan")
+            }
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxSize()
+                    .background(Color.Green),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("Verde")
             }
         }
     }
+}

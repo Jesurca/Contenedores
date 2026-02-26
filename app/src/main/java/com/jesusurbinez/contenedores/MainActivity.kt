@@ -5,18 +5,24 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,67 +39,120 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showSystemUi = true)
 @Composable
-fun ContenScreen() {
+@Preview(showSystemUi = true)
+fun ContentScreen() {
     Column(
         modifier = Modifier
             .background(Color.Gray)
-            .padding(all = 18.dp),
-
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.SpaceAround
 
     ) {
         Row(
             modifier = Modifier
-                .background(Color.Cyan)
                 .fillMaxWidth()
-                .padding(all = 18.dp),
-            horizontalArrangement = Arrangement.Center
+                .background(Color.Cyan)
+                .padding(18.dp), horizontalArrangement = Arrangement.Center
+
+
         ) {
             Text(
-                text = "Cabeza",
-                fontSize = 25.sp,
+                text = "Inicio",
                 modifier = Modifier
-                    .background(Color.Red)
-
+                    .background(Color.Green)
+                    .padding(8.dp)
             )
+
             Text(
-                text = "Cuerpo",
-                fontSize = 25.sp,
+                text = "Perfil",
                 modifier = Modifier
-                    .background(Color.Red)
-
+                    .background(Color.Yellow)
+                    .padding(8.dp)
             )
+
             Text(
-                text = "pie",
-                fontSize = 25.sp,
+                text = "Configuracion",
                 modifier = Modifier
                     .background(Color.Red)
-
+                    .padding(8.dp)
             )
-
 
         }
         Text(
-            text = "Inicio",
-            fontSize = 25.sp,
+            text = "Asi pongo las cosas debajo del row",
             modifier = Modifier
                 .background(Color.Red)
+                .fillMaxWidth()
                 .padding(8.dp)
         )
         Text(
-            text = "Perfil",
-            fontSize = 25.sp,
+            text = "Papapa",
             modifier = Modifier
-                .background(Color.Yellow)
+                .background(Color.Cyan)
+                .fillMaxWidth()
                 .padding(8.dp)
+
         )
         Text(
-            text = "Configuracion", fontSize = 25.sp,
+            text = "uno dos tres",
             modifier = Modifier
                 .background(Color.Green)
+                .fillMaxWidth()
                 .padding(8.dp)
+
         )
     }
 }
 
+@Composable
+@Preview(showSystemUi = true)
+fun Contenedor() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(15.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Image(
+            painter = painterResource(R.drawable.sym_def_app_icon),
+            contentDescription = "Check",
+            modifier = Modifier
+                .width(width = 200.dp)
+                .height(height = 200.dp),
+        )
+        Text(
+            text = "All Tasks Completed",
+            fontWeight = FontWeight.Bold
+        )
+        Text(text = "Nice Job!")
+    }
+
+
+}
+
+@Preview(showSystemUi = true)
+@Composable
+
+fun Cuadrante() {
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        Row(modifier = Modifier.weight(1f)) {
+            Column(modifier = Modifier
+                    .background(Color.Red)
+                    .weight(1f)
+                .fillMaxSize()) {
+                Text(text = "holala")
+                Text(text = "holala")
+            }
+                Column(modifier = Modifier
+                    .background(Color.Red)
+                    .weight(1f)) {
+                    Text(text = "holala")
+                    Text(text = "holala")
+                }
+            }
+        }
+    }
